@@ -171,10 +171,6 @@ The Monte Carlo estimate is that the mean is `r mean(y)`, the median is `r media
 
 It turns out that this specific transformation (x^2 of a standard Normal), has a well known analytical solution -- a Chi-squared distribution with one degee of freedom, so in this case we can compare the numerical approximation with the exact solution. This Chi-squared has a mean of 1, a median of `r qchisq(0.5,1)` and a 95% CI of `r qchisq(c(0.025,0.975),1)`. 
 
-### Problems
-
-3. [B] Numerically transform a lognormal(meanlog=0,sdlog=0.5) through sin(x) using Monte Carlo simulation. Include histograms of the original and transformed distributions. Report the mean, median, and 95% CI for both distributions and indicate these values on the histograms.
-
 Parameter error
 ---------------
 
@@ -219,13 +215,13 @@ ciEnvelope <- function(x,ylo,yhi,col="lightgrey",...){
 
 ### Problems
 
-4. [B] Plot histograms of the samples of r and K used for the simulation.
+3. [B] Plot histograms of the samples of r and K used for the simulation.
 
-5. [A] Plot a sample of 10 different trajectories (through time) from your ensemble (on one graph).
+4. [A] Plot a sample of 10 different trajectories (through time) from your ensemble (on one graph).
 
-6. [B] Plot a histogram of your population forecast at time = 15.
+5. [B] Plot a histogram of your population forecast at time = 15.
 
-7. [A] Plot the median trajectory through time. Use `ciEnvelope` to add a 95% CI (i.e. 2.5% to 97.5%) to the plot. This function need to take time-series for both the upper (yhi) and lower (ylo) intervals.
+6. [A] Plot the median trajectory through time. Use `ciEnvelope` to add a 95% CI (i.e. 2.5% to 97.5%) to the plot. This function need to take time-series for both the upper (yhi) and lower (ylo) intervals.
 
 Initial conditions
 ------------------
@@ -235,20 +231,14 @@ The approach for simulating uncertainty in the initial conditions is very simila
 ```{r}
 r = 0.3
 n0.sd = 0.6
-n0s = rlnorm(NE,log(n0),n0.sd)
-n = matrix(n0s,NE,NT)
-for(i in 1:NE){
-  for(t in 2:NT){
-    n[i,t] = max(0,n[i,t-1] + r*n[i,t-1]*(1-n[i,t-1]/K))
-  }
-}
+n0_ens = rlnorm(NE,log(n0),n0.sd)
 ```
 
 ### Problems
 
-8. [B] Plot the median & 95% interval.
+7. [B] Modify the previous Monte Carlo code for logistic growth, setting the parameters back to their defaults (r=1, K=10) but using the sample of initial conditions to propagate initial condition uncertainty. Plot the median & 95% interval.
 
-9. [C] Repeat with r equal to 1.95, 2.05, and 2.8
+8. [C] Repeat with r equal to 1.95, 2.05, and 2.8. Compare these simulations to those done in Question 1.
 
 
 
