@@ -40,7 +40,7 @@ The variable `time` used in the code above is a vector of indices (length = nrow
 as.integer(as.factor(dat$time))
 ```
 
-2. Update the data model to reference `Ex[t]` instead of `mu`
+2. Update the data model to reference `Ex[i]` instead of `mu`
 
 3. Add the random year effect parameter model (within a loop over time)
 ```
