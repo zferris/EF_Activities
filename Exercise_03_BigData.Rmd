@@ -29,8 +29,8 @@ get.pkg("arrow")
 get.pkg("devtools")
 get.pkg("MODISTools")
 get.pkg("EML")
-get.pkg("cronR")
 get.pkg("tidyverse")
+#get.pkg("cronR")  ## optional, may not install easily on Windows
 ```
 
 
