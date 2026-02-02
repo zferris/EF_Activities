@@ -40,7 +40,7 @@ The variable `time` used in the code above is a vector of indices (length = nrow
 as.integer(as.factor(dat$time))
 ```
 
-2. Update the data model to reference `Ex[t]` instead of `mu`
+2. Update the data model to reference `Ex[i]` instead of `mu`
 
 3. Add the random year effect parameter model (within a loop over time)
 ```
@@ -80,7 +80,7 @@ You are discussing your research with a colleague and mention that your random e
 ### Task 3:
 
 6.  As an exploratory analysis of this hypothesis, plot the posterior mean of your random year effect (alpha_t) versus each of the three met variables.  Which variable(s) are worth exploring further?
-7.	Convert the random effects model to a hierarchical linear model by converting the mean, mu, to a linear model, `beta0 + beta1*y[t]` where y is the meteorological covariate you want to include, while keeping the random year effect.
+7.	Convert the random effects model to a hierarchical linear model by converting the mean, mu, to a linear model, `beta0 + beta1*y[i]` where y is the meteorological covariate you want to include, while keeping the random year effect.
 8.	Fit your hierarchical linear model and plot the model CI and PI vs the data
 9.	Create a summary table that provides the posterior parameter means and CI for all 3 models and their DIC scores.
 10.	Extra Credit: Use the best fitting model to predict the next 5 years (2005-2009) of mosquito abundance including an uncertainty estimate (predictive interval). Turn in a graph of your prediction.

@@ -127,7 +127,7 @@ model {
 
 
 While this model looks larger and more complicated, it really just consists of a number of simple parts we've seen before.  The first part is the fitting of the calibration curve.  The second part involves using the calibration curve to estimate soil moisture and then fitting the Poisson regression of seedling density vs soil moisture.  Unlike the conventional approach of performing each step sequentially, this approach propagates the error in each step into the final model.
-	Reminder: you may want to specify initial conditions on the model parameters.  It is perfectly valid to use the previous estimates (e.g. Task 1) for the initial conditions.  For example, if I wanted to initialize alpha to all 0's and sigma to 5 I would specify list(alpha=c(0,0),sigma(5))
+	Reminder: you may want to specify initial conditions on the model parameters.  It is perfectly valid to use the previous estimates (e.g. Task 1) for the initial conditions.  For example, if I wanted to initialize alpha to all 0's and sigma to 5 I would specify list(alpha=c(0,0),sigma=5)
  
 ### Task 3: 
 
